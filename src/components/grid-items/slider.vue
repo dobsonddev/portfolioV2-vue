@@ -15,8 +15,8 @@
 	</div>
 </template>
 
-<script setup>
-import { computed } from 'vue';
+<script lang="ts" setup>
+import {computed, type ComputedRef} from 'vue';
 
 const props = defineProps({
 	speed: {
@@ -29,14 +29,14 @@ const props = defineProps({
 	},
 });
 
-const animationSpeed = computed(() => `${ props.speed }s`);
-const isReversed = computed(() => props.reverse);
+const animationSpeed: ComputedRef<string> = computed(() => `${props.speed}s`);
+const isReversed: ComputedRef<boolean> = computed(() => props.reverse);
 
 </script>
 
 <style>
 .marquee {
-	@apply flex items-center justify-center left-1/2 right-1/2 mx-[-50vw] overflow-hidden relative w-[100vw];
+	@apply flex items-center justify-center overflow-hidden relative w-[100vw];
 	--gap: 0.5rem;
 	gap: var(--gap);
 }

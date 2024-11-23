@@ -1,9 +1,9 @@
-interface Itech {
+interface ITech {
 	name: string;
 	icon: string;
 }
 
-export const techs: Itechs[] = [
+export const techs: ITech[] = [
 	{
 		name: 'JavaScript',
 		icon: 'devicon:javascript',
@@ -76,5 +76,5 @@ export const techs: Itechs[] = [
 	{
 		name: 'GraphQL',
 		icon: 'logos:axios',
-	}
+	},
 ]
