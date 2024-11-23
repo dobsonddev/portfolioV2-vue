@@ -2,50 +2,27 @@
 
 import {GridItem, GridLayout} from "vue3-drr-grid-layout";
 import GridItemContent from "@/components/grid-items/grid-item-content.vue";
-import {mdLayout} from "@/utils/md-layouts";
+import type {IGrid} from "@/utils/IGrid";
 
-defineProps({
-	layout: {
-		type: Array,
-		required: true,
-	},
-	cols: {
-		type: Number,
-		default: 12
-	},
-	rowHeight: {
-		type: Number,
-		default: 30
-	}
-})
+defineProps<{
+	layout: IGrid[],
+	rowHeight: number,
+	isDraggable: boolean,
+}>()
+
 </script>
 
 <template>
 	<grid-layout
-		:breakpoints="{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }"
-		:col-num="cols"
-		:cols="{ lg: 12, md: 10, sm: 12, xs: 12, xxs: 12 }"
+		:col-num="12"
+		:is-draggable="isDraggable"
 		:isResizable="false"
 		:layout="layout"
 		:margin="[15, 15, 15, 15]"
-		:responsiveLayouts="{md: mdLayout}"
-		:row-height="22"
+		:row-height="rowHeight"
 		:useCssTransforms="true"
 	>
 		<template #default="{ gridItemProps }">
-			<!-- | gridItemProps props from GridLayout | -->
-			<!--breakpointCols: props.cols-->
-			<!--colNum: props.colNum-->
-			<!--containerWidth: width.value-->
-			<!--isDraggable: props.isDraggable-->
-			<!--isResizable: props.isResizable-->
-			<!--lastBreakpoint: lastBreakpoint.value-->
-			<!--margin: props.margin-->
-			<!--maxRows: props.maxRows-->
-			<!--responsive: props.responsive-->
-			<!--rowHeight: props.rowHeight-->
-			<!--useCssTransforms: props.useCssTransforms-->
-			<!--width: width.value-->
 			<grid-item
 				v-for="item in layout"
 				:key="item.i"
@@ -55,9 +32,6 @@ defineProps({
 				:x="item.x"
 				:y="item.y"
 				v-bind="gridItemProps"
-				@move="move"
-				@moved="moved"
-				@resize="resize"
 			>
 				<grid-item-content>
 					<component :is="item.component"/>
@@ -70,11 +44,13 @@ defineProps({
 <style scoped>
 
 .vue-grid-item {
-	background-color: transparent;
+	-webkit-backdrop-filter: blur(20px);
+	backdrop-filter: blur(20px);
+	border-radius: 1.6rem;
 	box-sizing: border-box;
-	touch-action: none;
 	transition: all .350s ease-in-out;
 	transition-property: left, top, right;
+	@apply touch-none max-sm:!touch-auto;
 }
 
 .vue-grid-item.no-touch {
