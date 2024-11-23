@@ -1,0 +1,58 @@
+.
+├── README.md
+├── env.d.ts
+├── index.html
+├── package.json
+├── postcss.config.js
+├── project-structure.txt
+├── public
+│   ├── CV.png
+│   └── avatar.png
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   ├── img
+│   │   │   ├── crm-system.png
+│   │   │   ├── dark-map.png
+│   │   │   └── light-map.png
+│   │   └── main.css
+│   ├── components
+│   │   ├── Navbar.vue
+│   │   ├── background.vue
+│   │   ├── grid-items
+│   │   │   ├── education.vue
+│   │   │   ├── email.vue
+│   │   │   ├── github.vue
+│   │   │   ├── grid-item-content.vue
+│   │   │   ├── instagram.vue
+│   │   │   ├── linkedin.vue
+│   │   │   ├── map.vue
+│   │   │   ├── personal-info.vue
+│   │   │   ├── project.vue
+│   │   │   ├── projects
+│   │   │   │   ├── crm-system.vue
+│   │   │   │   └── project.vue
+│   │   │   ├── resume.vue
+│   │   │   ├── slider.vue
+│   │   │   ├── sliding-text.vue
+│   │   │   ├── tech-stack.vue
+│   │   │   ├── techs.ts
+│   │   │   └── theme.vue
+│   │   └── grid.vue
+│   ├── main.ts
+│   ├── store
+│   │   └── navbar.ts
+│   └── utils
+│       ├── IGrid.ts
+│       ├── about-grids.ts
+│       ├── main-layouts.ts
+│       ├── md-layouts.ts
+│       └── mobile-layouts.ts
+├── tailwind.config.js
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── yarn.lock
+
+10 directories, 46 files
